@@ -615,11 +615,28 @@
 <input name="name" placeholder="Your Name" required="" type="text"/>
 <input name="email" placeholder="Your Email" required="" type="email"/>
 <textarea name="message" placeholder="Your Message" required="" rows="5"></textarea>
-<label for="captcha">What is 1 + 8?</label><input id="captcha" name="captcha" required="True" type="text"/>
+
+<div>
+<label for="captcha">CAPTCHA: <span id="captcha-question"></span></label>
+<input id="captcha-answer" required="" type="text"/>
+</div>
+<script>
+  let num1 = Math.floor(Math.random() * 10);
+  let num2 = Math.floor(Math.random() * 10);
+  let correctAnswer = num1 + num2;
+  document.getElementById("captcha-question").textContent = `What is ${num1} + ${num2}?`;
+
+  document.querySelector("form").addEventListener("submit", function(event) {
+    let userAnswer = parseInt(document.getElementById("captcha-answer").value);
+    if (userAnswer !== correctAnswer) {
+      alert("Incorrect CAPTCHA answer. Please try again.");
+      event.preventDefault();
+    }
+  });
+</script>
 <button type="submit">Send Message</button>
 </form>
 </section>
-
 <div class="modal" id="mediaModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
 <div style="position:relative; max-width:90%; max-height:90%;">
 <span onclick="closeModal()" style="position:absolute; top:10px; right:20px; font-size:30px; color:white; cursor:pointer;">×</span>
