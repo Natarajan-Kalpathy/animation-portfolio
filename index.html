@@ -1,91 +1,656 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animation Portfolio</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
-        header { background: #222; color: #fff; padding: 20px 0; text-align: center; }
-        nav a { color: #fff; margin: 0 15px; text-decoration: none; }
-        section { padding: 40px 20px; }
-        .hero { background: #333; color: #fff; text-align: center; padding: 60px 20px; }
-        .hero video { max-width: 100%; height: auto; margin-top: 20px; }
-        .portfolio { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-        .project { border: 1px solid #ccc; padding: 10px; width: 300px; }
-        .project img { width: 100%; height: auto; }
-        .about, .contact { max-width: 800px; margin: auto; }
-        form input, form textarea { width: 100%; padding: 10px; margin: 10px 0; }
-        form button { padding: 10px 20px; background: #222; color: #fff; border: none; }
-        footer { background: #222; color: #fff; text-align: center; padding: 20px 0; }
-        @media (max-width: 600px) {
-            .portfolio { flex-direction: column; align-items: center; }
-        }
-    </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Animation Portfolio</title>
+<style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: #fff;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .portfolio-wrapper {
+      max-height: 600px;
+      overflow-y: auto;
+    }
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: #ffffff10;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      background: #ffffff20;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .card h3 {
+      margin-top: 0.5rem;
+    }
+    .about, .contact {
+      background: #ffffff10;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input, textarea {
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.75rem;
+      background: #ff9800;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e68900;
+    }
+  </style>
 </head>
 <body>
-
 <header>
-    <h1>My Animation Portfolio</h1>
-    <nav>
-        <a href="#hero">Home</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<h1>Nikita K C</h1>
+<p>Animator | Storyteller </p>
 </header>
-
-<section id="hero" class="hero">
-    <h2>Welcome to My World of Animation</h2>
-    <p>Watch my latest showreel below</p>
-    <video controls>
-        <source src="your-animation-reel.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+<section>
+<section class="about">
+<h2>About Me</h2>
+<p>I am Nikita. I am a student at ....... As far as I can remember, I am a Storyteller and animation helps me bring my stories to live. This space is to show my passion for lively storytelling.</p>
+</section>
+<h2>Showreel</h2>
+<video controls="" width="100%">
+<source src="showreel.mp4" type="video/mp4"/>
+      Your browser does not support the video tag.
     </video>
 </section>
-
-<section id="portfolio">
-    <h2 style="text-align:center;">Portfolio</h2>
-    <div class="portfolio">
-        <div class="project">
-            <img src="project1-thumbnail.jpg" alt="Project 1">
-            <h3>Project Title 1</h3>
-            <p>Short description of the animation project and your role in it.</p>
-        </div>
-        <div class="project">
-            <img src="project2-thumbnail.jpg" alt="Project 2">
-            <h3>Project Title 2</h3>
-            <p>Short description of the animation project and your role in it.</p>
-        </div>
-    </div>
+<section>
+<h2>Portfolio</h2>
+<div class="portfolio-wrapper">
+<div class="portfolio">
+<div class="card" onclick="openModal('project1.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 1" src="project1.jpg"/>
+<h3>Project Title 1</h3>
+<p>Short description of animation project 1.</p>
+</div>
+<div class="card" onclick="openModal('project2.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 2" src="project2.jpg"/>
+<h3>Project Title 2</h3>
+<p>Short description of animation project 2.</p>
+</div>
+<div class="card" onclick="openModal('project3.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 3" src="project3.jpg"/>
+<h3>Project Title 3</h3>
+<p>Short description of animation project 3.</p>
+</div>
+<div class="card" onclick="openModal('project4.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 4" src="project4.jpg"/>
+<h3>Project Title 4</h3>
+<p>Short description of animation project 4.</p>
+</div>
+<div class="card" onclick="openModal('project5.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 5" src="project5.jpg"/>
+<h3>Project Title 5</h3>
+<p>Short description of animation project 5.</p>
+</div>
+<div class="card" onclick="openModal('project6.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 6" src="project6.jpg"/>
+<h3>Project Title 6</h3>
+<p>Short description of animation project 6.</p>
+</div>
+<div class="card" onclick="openModal('project7.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 7" src="project7.jpg"/>
+<h3>Project Title 7</h3>
+<p>Short description of animation project 7.</p>
+</div>
+<div class="card" onclick="openModal('project8.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 8" src="project8.jpg"/>
+<h3>Project Title 8</h3>
+<p>Short description of animation project 8.</p>
+</div>
+<div class="card" onclick="openModal('project9.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 9" src="project9.jpg"/>
+<h3>Project Title 9</h3>
+<p>Short description of animation project 9.</p>
+</div>
+<div class="card" onclick="openModal('project10.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 10" src="project10.jpg"/>
+<h3>Project Title 10</h3>
+<p>Short description of animation project 10.</p>
+</div>
+<div class="card" onclick="openModal('project11.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 11" src="project11.jpg"/>
+<h3>Project Title 11</h3>
+<p>Short description of animation project 11.</p>
+</div>
+<div class="card" onclick="openModal('project12.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 12" src="project12.jpg"/>
+<h3>Project Title 12</h3>
+<p>Short description of animation project 12.</p>
+</div>
+<div class="card" onclick="openModal('project13.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 13" src="project13.jpg"/>
+<h3>Project Title 13</h3>
+<p>Short description of animation project 13.</p>
+</div>
+<div class="card" onclick="openModal('project14.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 14" src="project14.jpg"/>
+<h3>Project Title 14</h3>
+<p>Short description of animation project 14.</p>
+</div>
+<div class="card" onclick="openModal('project15.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 15" src="project15.jpg"/>
+<h3>Project Title 15</h3>
+<p>Short description of animation project 15.</p>
+</div>
+<div class="card" onclick="openModal('project16.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 16" src="project16.jpg"/>
+<h3>Project Title 16</h3>
+<p>Short description of animation project 16.</p>
+</div>
+<div class="card" onclick="openModal('project17.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 17" src="project17.jpg"/>
+<h3>Project Title 17</h3>
+<p>Short description of animation project 17.</p>
+</div>
+<div class="card" onclick="openModal('project18.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 18" src="project18.jpg"/>
+<h3>Project Title 18</h3>
+<p>Short description of animation project 18.</p>
+</div>
+<div class="card" onclick="openModal('project19.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 19" src="project19.jpg"/>
+<h3>Project Title 19</h3>
+<p>Short description of animation project 19.</p>
+</div>
+<div class="card" onclick="openModal('project20.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 20" src="project20.jpg"/>
+<h3>Project Title 20</h3>
+<p>Short description of animation project 20.</p>
+</div>
+<div class="card" onclick="openModal('project21.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 21" src="project21.jpg"/>
+<h3>Project Title 21</h3>
+<p>Short description of animation project 21.</p>
+</div>
+<div class="card" onclick="openModal('project22.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 22" src="project22.jpg"/>
+<h3>Project Title 22</h3>
+<p>Short description of animation project 22.</p>
+</div>
+<div class="card" onclick="openModal('project23.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 23" src="project23.jpg"/>
+<h3>Project Title 23</h3>
+<p>Short description of animation project 23.</p>
+</div>
+<div class="card" onclick="openModal('project24.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 24" src="project24.jpg"/>
+<h3>Project Title 24</h3>
+<p>Short description of animation project 24.</p>
+</div>
+<div class="card" onclick="openModal('project25.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 25" src="project25.jpg"/>
+<h3>Project Title 25</h3>
+<p>Short description of animation project 25.</p>
+</div>
+<div class="card" onclick="openModal('project26.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 26" src="project26.jpg"/>
+<h3>Project Title 26</h3>
+<p>Short description of animation project 26.</p>
+</div>
+<div class="card" onclick="openModal('project27.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 27" src="project27.jpg"/>
+<h3>Project Title 27</h3>
+<p>Short description of animation project 27.</p>
+</div>
+<div class="card" onclick="openModal('project28.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 28" src="project28.jpg"/>
+<h3>Project Title 28</h3>
+<p>Short description of animation project 28.</p>
+</div>
+<div class="card" onclick="openModal('project29.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 29" src="project29.jpg"/>
+<h3>Project Title 29</h3>
+<p>Short description of animation project 29.</p>
+</div>
+<div class="card" onclick="openModal('project30.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 30" src="project30.jpg"/>
+<h3>Project Title 30</h3>
+<p>Short description of animation project 30.</p>
+</div>
+<div class="card" onclick="openModal('project31.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 31" src="project31.jpg"/>
+<h3>Project Title 31</h3>
+<p>Short description of animation project 31.</p>
+</div>
+<div class="card" onclick="openModal('project32.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 32" src="project32.jpg"/>
+<h3>Project Title 32</h3>
+<p>Short description of animation project 32.</p>
+</div>
+<div class="card" onclick="openModal('project33.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 33" src="project33.jpg"/>
+<h3>Project Title 33</h3>
+<p>Short description of animation project 33.</p>
+</div>
+<div class="card" onclick="openModal('project34.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 34" src="project34.jpg"/>
+<h3>Project Title 34</h3>
+<p>Short description of animation project 34.</p>
+</div>
+<div class="card" onclick="openModal('project35.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 35" src="project35.jpg"/>
+<h3>Project Title 35</h3>
+<p>Short description of animation project 35.</p>
+</div>
+<div class="card" onclick="openModal('project36.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 36" src="project36.jpg"/>
+<h3>Project Title 36</h3>
+<p>Short description of animation project 36.</p>
+</div>
+<div class="card" onclick="openModal('project37.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 37" src="project37.jpg"/>
+<h3>Project Title 37</h3>
+<p>Short description of animation project 37.</p>
+</div>
+<div class="card" onclick="openModal('project38.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 38" src="project38.jpg"/>
+<h3>Project Title 38</h3>
+<p>Short description of animation project 38.</p>
+</div>
+<div class="card" onclick="openModal('project39.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 39" src="project39.jpg"/>
+<h3>Project Title 39</h3>
+<p>Short description of animation project 39.</p>
+</div>
+<div class="card" onclick="openModal('project40.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 40" src="project40.jpg"/>
+<h3>Project Title 40</h3>
+<p>Short description of animation project 40.</p>
+</div>
+<div class="card" onclick="openModal('project41.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 41" src="project41.jpg"/>
+<h3>Project Title 41</h3>
+<p>Short description of animation project 41.</p>
+</div>
+<div class="card" onclick="openModal('project42.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 42" src="project42.jpg"/>
+<h3>Project Title 42</h3>
+<p>Short description of animation project 42.</p>
+</div>
+<div class="card" onclick="openModal('project43.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 43" src="project43.jpg"/>
+<h3>Project Title 43</h3>
+<p>Short description of animation project 43.</p>
+</div>
+<div class="card" onclick="openModal('project44.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 44" src="project44.jpg"/>
+<h3>Project Title 44</h3>
+<p>Short description of animation project 44.</p>
+</div>
+<div class="card" onclick="openModal('project45.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 45" src="project45.jpg"/>
+<h3>Project Title 45</h3>
+<p>Short description of animation project 45.</p>
+</div>
+<div class="card" onclick="openModal('project46.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 46" src="project46.jpg"/>
+<h3>Project Title 46</h3>
+<p>Short description of animation project 46.</p>
+</div>
+<div class="card" onclick="openModal('project47.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 47" src="project47.jpg"/>
+<h3>Project Title 47</h3>
+<p>Short description of animation project 47.</p>
+</div>
+<div class="card" onclick="openModal('project48.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 48" src="project48.jpg"/>
+<h3>Project Title 48</h3>
+<p>Short description of animation project 48.</p>
+</div>
+<div class="card" onclick="openModal('project49.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 49" src="project49.jpg"/>
+<h3>Project Title 49</h3>
+<p>Short description of animation project 49.</p>
+</div>
+<div class="card" onclick="openModal('project50.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 50" src="project50.jpg"/>
+<h3>Project Title 50</h3>
+<p>Short description of animation project 50.</p>
+</div>
+<div class="card" onclick="openModal('project51.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 51" src="project51.jpg"/>
+<h3>Project Title 51</h3>
+<p>Short description of animation project 51.</p>
+</div>
+<div class="card" onclick="openModal('project52.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 52" src="project52.jpg"/>
+<h3>Project Title 52</h3>
+<p>Short description of animation project 52.</p>
+</div>
+<div class="card" onclick="openModal('project53.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 53" src="project53.jpg"/>
+<h3>Project Title 53</h3>
+<p>Short description of animation project 53.</p>
+</div>
+<div class="card" onclick="openModal('project54.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 54" src="project54.jpg"/>
+<h3>Project Title 54</h3>
+<p>Short description of animation project 54.</p>
+</div>
+<div class="card" onclick="openModal('project55.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 55" src="project55.jpg"/>
+<h3>Project Title 55</h3>
+<p>Short description of animation project 55.</p>
+</div>
+<div class="card" onclick="openModal('project56.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 56" src="project56.jpg"/>
+<h3>Project Title 56</h3>
+<p>Short description of animation project 56.</p>
+</div>
+<div class="card" onclick="openModal('project57.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 57" src="project57.jpg"/>
+<h3>Project Title 57</h3>
+<p>Short description of animation project 57.</p>
+</div>
+<div class="card" onclick="openModal('project58.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 58" src="project58.jpg"/>
+<h3>Project Title 58</h3>
+<p>Short description of animation project 58.</p>
+</div>
+<div class="card" onclick="openModal('project59.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 59" src="project59.jpg"/>
+<h3>Project Title 59</h3>
+<p>Short description of animation project 59.</p>
+</div>
+<div class="card" onclick="openModal('project60.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 60" src="project60.jpg"/>
+<h3>Project Title 60</h3>
+<p>Short description of animation project 60.</p>
+</div>
+<div class="card" onclick="openModal('project61.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 61" src="project61.jpg"/>
+<h3>Project Title 61</h3>
+<p>Short description of animation project 61.</p>
+</div>
+<div class="card" onclick="openModal('project62.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 62" src="project62.jpg"/>
+<h3>Project Title 62</h3>
+<p>Short description of animation project 62.</p>
+</div>
+<div class="card" onclick="openModal('project63.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 63" src="project63.jpg"/>
+<h3>Project Title 63</h3>
+<p>Short description of animation project 63.</p>
+</div>
+<div class="card" onclick="openModal('project64.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 64" src="project64.jpg"/>
+<h3>Project Title 64</h3>
+<p>Short description of animation project 64.</p>
+</div>
+<div class="card" onclick="openModal('project65.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 65" src="project65.jpg"/>
+<h3>Project Title 65</h3>
+<p>Short description of animation project 65.</p>
+</div>
+<div class="card" onclick="openModal('project66.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 66" src="project66.jpg"/>
+<h3>Project Title 66</h3>
+<p>Short description of animation project 66.</p>
+</div>
+<div class="card" onclick="openModal('project67.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 67" src="project67.jpg"/>
+<h3>Project Title 67</h3>
+<p>Short description of animation project 67.</p>
+</div>
+<div class="card" onclick="openModal('project68.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 68" src="project68.jpg"/>
+<h3>Project Title 68</h3>
+<p>Short description of animation project 68.</p>
+</div>
+<div class="card" onclick="openModal('project69.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 69" src="project69.jpg"/>
+<h3>Project Title 69</h3>
+<p>Short description of animation project 69.</p>
+</div>
+<div class="card" onclick="openModal('project70.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 70" src="project70.jpg"/>
+<h3>Project Title 70</h3>
+<p>Short description of animation project 70.</p>
+</div>
+<div class="card" onclick="openModal('project71.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 71" src="project71.jpg"/>
+<h3>Project Title 71</h3>
+<p>Short description of animation project 71.</p>
+</div>
+<div class="card" onclick="openModal('project72.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 72" src="project72.jpg"/>
+<h3>Project Title 72</h3>
+<p>Short description of animation project 72.</p>
+</div>
+<div class="card" onclick="openModal('project73.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 73" src="project73.jpg"/>
+<h3>Project Title 73</h3>
+<p>Short description of animation project 73.</p>
+</div>
+<div class="card" onclick="openModal('project74.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 74" src="project74.jpg"/>
+<h3>Project Title 74</h3>
+<p>Short description of animation project 74.</p>
+</div>
+<div class="card" onclick="openModal('project75.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 75" src="project75.jpg"/>
+<h3>Project Title 75</h3>
+<p>Short description of animation project 75.</p>
+</div>
+<div class="card" onclick="openModal('project76.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 76" src="project76.jpg"/>
+<h3>Project Title 76</h3>
+<p>Short description of animation project 76.</p>
+</div>
+<div class="card" onclick="openModal('project77.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 77" src="project77.jpg"/>
+<h3>Project Title 77</h3>
+<p>Short description of animation project 77.</p>
+</div>
+<div class="card" onclick="openModal('project78.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 78" src="project78.jpg"/>
+<h3>Project Title 78</h3>
+<p>Short description of animation project 78.</p>
+</div>
+<div class="card" onclick="openModal('project79.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 79" src="project79.jpg"/>
+<h3>Project Title 79</h3>
+<p>Short description of animation project 79.</p>
+</div>
+<div class="card" onclick="openModal('project80.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 80" src="project80.jpg"/>
+<h3>Project Title 80</h3>
+<p>Short description of animation project 80.</p>
+</div>
+<div class="card" onclick="openModal('project81.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 81" src="project81.jpg"/>
+<h3>Project Title 81</h3>
+<p>Short description of animation project 81.</p>
+</div>
+<div class="card" onclick="openModal('project82.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 82" src="project82.jpg"/>
+<h3>Project Title 82</h3>
+<p>Short description of animation project 82.</p>
+</div>
+<div class="card" onclick="openModal('project83.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 83" src="project83.jpg"/>
+<h3>Project Title 83</h3>
+<p>Short description of animation project 83.</p>
+</div>
+<div class="card" onclick="openModal('project84.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 84" src="project84.jpg"/>
+<h3>Project Title 84</h3>
+<p>Short description of animation project 84.</p>
+</div>
+<div class="card" onclick="openModal('project85.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 85" src="project85.jpg"/>
+<h3>Project Title 85</h3>
+<p>Short description of animation project 85.</p>
+</div>
+<div class="card" onclick="openModal('project86.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 86" src="project86.jpg"/>
+<h3>Project Title 86</h3>
+<p>Short description of animation project 86.</p>
+</div>
+<div class="card" onclick="openModal('project87.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 87" src="project87.jpg"/>
+<h3>Project Title 87</h3>
+<p>Short description of animation project 87.</p>
+</div>
+<div class="card" onclick="openModal('project88.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 88" src="project88.jpg"/>
+<h3>Project Title 88</h3>
+<p>Short description of animation project 88.</p>
+</div>
+<div class="card" onclick="openModal('project89.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 89" src="project89.jpg"/>
+<h3>Project Title 89</h3>
+<p>Short description of animation project 89.</p>
+</div>
+<div class="card" onclick="openModal('project90.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 90" src="project90.jpg"/>
+<h3>Project Title 90</h3>
+<p>Short description of animation project 90.</p>
+</div>
+<div class="card" onclick="openModal('project91.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 91" src="project91.jpg"/>
+<h3>Project Title 91</h3>
+<p>Short description of animation project 91.</p>
+</div>
+<div class="card" onclick="openModal('project92.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 92" src="project92.jpg"/>
+<h3>Project Title 92</h3>
+<p>Short description of animation project 92.</p>
+</div>
+<div class="card" onclick="openModal('project93.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 93" src="project93.jpg"/>
+<h3>Project Title 93</h3>
+<p>Short description of animation project 93.</p>
+</div>
+<div class="card" onclick="openModal('project94.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 94" src="project94.jpg"/>
+<h3>Project Title 94</h3>
+<p>Short description of animation project 94.</p>
+</div>
+<div class="card" onclick="openModal('project95.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 95" src="project95.jpg"/>
+<h3>Project Title 95</h3>
+<p>Short description of animation project 95.</p>
+</div>
+<div class="card" onclick="openModal('project96.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 96" src="project96.jpg"/>
+<h3>Project Title 96</h3>
+<p>Short description of animation project 96.</p>
+</div>
+<div class="card" onclick="openModal('project97.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 97" src="project97.jpg"/>
+<h3>Project Title 97</h3>
+<p>Short description of animation project 97.</p>
+</div>
+<div class="card" onclick="openModal('project98.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 98" src="project98.jpg"/>
+<h3>Project Title 98</h3>
+<p>Short description of animation project 98.</p>
+</div>
+<div class="card" onclick="openModal('project99.mp4', 'mp4')" style=" cursor:pointer;">
+<img alt="Project 99" src="project99.jpg"/>
+<h3>Project Title 99</h3>
+<p>Short description of animation project 99.</p>
+</div>
+<div class="card" onclick="openModal('project100.fbx', 'fbx')" style=" cursor:pointer;">
+<img alt="Project 100" src="project100.jpg"/>
+<h3>Project Title 100</h3>
+<p>Short description of animation project 100.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="contact">
+<h2>Contact Me</h2>
+<form action="https://formspree.io/f/myzjbvlv" method="POST">
+<input name="name" placeholder="Your Name" required="" type="text"/>
+<input name="email" placeholder="Your Email" required="" type="email"/>
+<textarea name="message" placeholder="Your Message" required="" rows="5"></textarea>
+<button type="submit">Send Message</button>
+</form>
 </section>
 
-<section id="about" class="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm an animator passionate about storytelling through motion. I specialize in 2D/3D animation and visual effects.</p>
-    <h3>Tools I Use</h3>
-    <ul>
-        <li>Adobe After Effects</li>
-        <li>Blender</li>
-        <li>Toon Boom Harmony</li>
-        <li>Autodesk Maya</li>
-    </ul>
-</section>
-
-<section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <form>
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-    </form>
-</section>
-
-<footer>
-    <p>&copy; 2024 My Animation Portfolio</p>
-</footer>
-
-</body>
+<div class="modal" id="mediaModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
+<div style="position:relative; max-width:90%; max-height:90%;">
+<span onclick="closeModal()" style="position:absolute; top:10px; right:20px; font-size:30px; color:white; cursor:pointer;">×</span>
+<video controls="" id="modalVideo" style="max-width:100%; max-height:100%; display:none;"></video>
+<div id="fbxPlaceholder" style="color:white; font-size:20px; display:none;">FBX preview is not supported in browser.</div>
+</div>
+</div>
+<script>
+function openModal(filename, type) {
+  var modal = document.getElementById("mediaModal");
+  var video = document.getElementById("modalVideo");
+  var fbx = document.getElementById("fbxPlaceholder");
+  modal.style.display = "flex";
+  if (type === "mp4") {
+    video.src = filename;
+    video.style.display = "block";
+    fbx.style.display = "none";
+  } else if (type === "fbx") {
+    video.style.display = "none";
+    video.src = "";
+    fbx.style.display = "block";
+  }
+}
+function closeModal() {
+  var modal = document.getElementById("mediaModal");
+  var video = document.getElementById("modalVideo");
+  var fbx = document.getElementById("fbxPlaceholder");
+  modal.style.display = "none";
+  video.pause();
+  video.src = "";
+  video.style.display = "none";
+  fbx.style.display = "none";
+}
+</script></body>
 </html>
